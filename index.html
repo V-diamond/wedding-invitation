@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo-header {
+            position: relative;
+            text-align: center;
+        }
+
+        .photo-header img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .divider {
+            margin: 20px 0;
+            border-bottom: 1px solid white;
+        }
+
+        .content {
+            background-color: #eaeaea;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .content h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 26px;
+            color: #333;
+        }
+
+        .content p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .highlight {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .calendar {
+            display: flex;
+            justify-content: center; /* Выровнено по центру */
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .calendar .day {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+        }
+
+        .calendar .selected {
+            background-color: red;
+            color: white;
+            position: relative;
+            font-weight: bold;
+        }
+
+        .calendar .selected::after {
+            content: '❤';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 16px;
+            color: red;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            height: 900px; /* Увеличена высота карусели для более крупного изображения */
+            margin: 20px 0;
+        }
+
+        .carousel img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover; /* Изменено на cover для лучшего отображения */
+            transition: opacity 1s ease;
+        }
+
+        .carousel img.hidden {
+            opacity: 0;
+        }
+
+        .map {
+            margin: 20px 0;
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+            border-radius: 10px;
+        }
+
+        .timer {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .footer {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 22px;
+            margin-top: 20px;
+        }
+
+        .footer img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .carousel-controls {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .carousel-button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 0 5px;
+        }
+
+        .carousel-button:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <!-- Фотография и имена жениха и невесты -->
+    <div class="photo-header">
+        <img src="FotoMolodix1.jpg" alt="Фото жениха и невесты">
+        <div class="photo-caption">
+            <i>Вадим</i> и <i>Екатерина</i>
+        </div>
+    </div>
+
+    <!-- Полосочка -->
+    <div class="divider"></div>
+
+    <!-- Основной текст на сером фоне -->
+    <div class="content">
+        <h2>Дорогие родные и друзья!</h2>
+        <p>
+            Вы получили это приглашение,<br>
+            а значит мы спешим сообщить Вам,<br>
+            важную новость!<br>
+            <span class="highlight">Мы женимся!</span>
+        </p>
+        <p>
+            Приглашаем Вас разделить<br>
+            с нами радость особенного<br>
+            для нас события и<br>
+            стать частью нашей<br>
+            семейной истории!
+        </p>
+
+        <!-- Дата свадьбы -->
+        <div class="date" style="font-weight: bold; font-size: 36px;">03 Января 2025</div>
+
+
+        <!-- Календарь -->
+        <div class="calendar">
+            <div class="day">1</div>
+            <div class="day">2</div>
+            <div class="day selected">3</div>
+            <div class="day">4</div>
+            <div class="day">5</div>
+        </div>
+    </div>
+
+    <!-- Полосочка -->
+    <div class="divider"></div>
+
+    <!-- Место проведения свадьбы -->
+    <div class="content">
+        <h2>Ресторан Марракеш</h2>
+        <p>
+            По адресу:<br>
+            город Моздок, улица Пушкина, дом 23<br>
+            Сбор гостей в 17:00
+        </p>
+    </div>
+
+    <!-- Карусель фотографий -->
+    <div class="carousel">
+        <img src="Karisel1.jpg" alt="Фото 1" class="carousel-image">
+        <img src="Karisel2.jpg" alt="Фото 2" class="carousel-image hidden">
+        <img src="Karisel3.jpg" alt="Фото 3" class="carousel-image hidden">
+    </div>
+
+    <!-- Кнопки для пролистывания карусели -->
+    <div class="carousel-controls">
+        <button class="carousel-button" onclick="prevImage()">◀</button>
+        <button class="carousel-button" onclick="nextImage()">▶</button>
+    </div>
+
+    <!-- Полосочка -->
+    <div class="divider"></div>
+
+    <!-- Текст "Как добраться" -->
+    <div class="content">
+        <h2>Как добраться?</h2>
+        <p>
+            Для Вашего удобства<br>
+            мы подготовили карту.<br>
+            Надеемся, что вы легко<br>
+            найдете место проведения<br>
+            свадьбы и порадуете<br>
+            нас своим присутствием!
+        </p>
+    </div>
+
+    <!-- Карта Яндекс -->
+    <div class="map">
+        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa3a0016bf6dbd8b81a3f6cec8ee50294a10b31f9b043e7c90fb92ea158917adb&amp;width=740&amp;height=527&amp;lang=ru_RU&amp;scroll=true"></script>
+    </div>
+
+    <!-- Таймер обратного отсчета до свадьбы -->
+    <div class="timer" id="timer">
+        Оставшееся время: <span id="countdown"></span>
+    </div>
+
+    <!-- Полосочка -->
+    <div class="divider"></div>
+
+    <!-- Финальное сообщение -->
+    <div class="footer">
+        Будем рады видеть<br>
+        Вас на нашем празднике!<br>
+        <i>Вадим</i> и <i>Екатерина</i>
+    </div>
+
+    <!-- Последнее фото -->
+    <div class="photo-header">
+        <img src="FotoMolodix2.jpg" alt="Фото молодоженов">
+    </div>
+
+</div>
+
+<script>
+    // Таймер обратного отсчета до свадьбы
+    function countdown() {
+        const weddingDate = new Date('2025-01-03T17:00:00').getTime();
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML = `${days} дней, ${hours} часов, ${minutes} минут, ${seconds} секунд`;
+
+        if (distance < 0) {
+            document.getElementById("countdown").innerHTML = "Событие состоялось!";
+        }
+    }
+
+    setInterval(countdown, 1000);
+
+    // Карусель фотографий с автозаменой
+    const images = document.querySelectorAll('.carousel-image');
+    let currentImageIndex = 0;
+
+    function showNextImage() {
+        images[currentImageIndex].classList.add('hidden');
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        images[currentImageIndex].classList.remove('hidden');
+    }
+
+    function nextImage() {
+        showNextImage();
+    }
+
+    function prevImage() {
+        images[currentImageIndex].classList.add('hidden');
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        images[currentImageIndex].classList.remove('hidden');
+    }
+
+    setInterval(showNextImage, 8000); // Автоматическая смена фото каждые 8 секунд
+</script>
+
+</body>
+
+</html>
