@@ -111,10 +111,11 @@
             color: red;
         }
 
+        /* Адаптивные стили для карусели */
         .carousel {
             position: relative;
             overflow: hidden;
-            height: 900px; /* Увеличена высота карусели для более крупного изображения */
+            height: 600px; /* Базовая высота для ПК */
             margin: 20px 0;
         }
 
@@ -129,6 +130,13 @@
 
         .carousel img.hidden {
             opacity: 0;
+        }
+
+        /* Медиазапросы для мобильных устройств */
+        @media (max-width: 600px) {
+            .carousel {
+                height: 300px; /* Уменьшаем высоту карусели на мобильных устройствах */
+            }
         }
 
         .map {
